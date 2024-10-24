@@ -1,6 +1,6 @@
 # [WIP] Speed up validator setup 
 
-A guide for validator setup. I have been planing with different hardware so actively switching machines so this acts a helpful resource to myself
+A guide for validator setup. I have been playing with different hardware so actively switching machines so this acts a helpful resource to myself
 
 ## Basic Overview
 
