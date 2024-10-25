@@ -163,15 +163,165 @@ alias logtail='tail -f /home/sol/solana-validator.log'
 - Installation script source: [ice-staking repository](https://github.com/dhruvsol/ice-staking/blob/main/start/init.sh)
 
 
-## HotSwap Setup 
-I use 2 servers to hot-swap to maintain 100% uptime while changing anything in the system. the guide I follow is [Identity Transition](https://pumpkins-pool.gitbook.io/pumpkins-pool) by Pumpkin 
+# Hot-Swap Validator Setup Guide
 
-### Identity Keypair 
+## Overview
+This guide describes how to set up two servers for hot-swapping to maintain 100% uptime during system changes. The process follows the [Identity Transition](https://pumpkins-pool.gitbook.io/pumpkins-pool) methodology by Pumpkin.
 
-1. unstaked.json
-  - This is a burner keypair without sol so it won't be able to vote
-2. staked.json
-  - This is the main staked keypair which will we swap it in case we want 
+## Identity Keypair Configuration
+
+### Required Keypairs
+1. **Unstaked Keypair** (`unstaked.json`)
+   - Functions as a burner keypair
+   - Maintains zero SOL balance to prevent voting capabilities
+
+2. **Staked Keypair** (`staked.json`)
+   - Serves as the primary staked keypair
+   - Used for validator transitions when needed
+
+### Transferring Keypairs
+Transfer the keypairs to your validator server using SCP:
+```bash
+scp <source_files> ice-ams:
+```
+> **Note**: Customize the SSH configuration according to your setup. Ensure proper permissions are set for the `sol` user after transfer.
+
+## Log Rotation Configuration
+
+Create and implement log rotation for validator logs:
+
+```bash
+cat > logrotate.sol <<EOF
+/home/sol/solana-validator.log {
+    rotate 7
+    daily
+    missingok
+    postrotate
+        systemctl kill -s USR1 sol.service
+    endscript
+}
+EOF
+
+sudo cp logrotate.sol /etc/logrotate.d/sol
+systemctl restart logrotate.service
+```
+
+## Systemd Service Configuration
+
+Create a systemd service file for the Solana validator:
+
+```ini
+[Unit]
+Description=Solana Validator
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=sol
+LimitNOFILE=1000000
+LogRateLimitIntervalSec=0
+Environment="SOLANA_METRICS_CONFIG=host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
+Environment="PATH=/home/sol/bin:/home/sol/.local/share/solana/install/active_release/bin:/home/sol/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+ExecStart=/home/sol/bin/ice-staking/start/start.sh mainnet-beta
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## Service Management Commands
+
+### Start Service
+```bash
+sudo systemctl enable --now sol
+```
+
+### Stop Service
+```bash
+sudo systemctl stop sol
+```
+
+### Restart Service
+```bash
+sudo systemctl restart sol
+```
+  
+After this check the log file snapshot download should have started
+
+```
+tail -f solana-validator.log 
+```
+
+# Solana Validator Operations Guide
+
+## Metrics & Monitoring Solutions
+
+### 1. Built-in Dashboard Options
+- **Solana Metrics Dashboard**
+  - Official solution from Solana Labs
+  - Access via URL specified in service file
+  - Provides real-time validator performance metrics
+
+### 2. Third-Party Solutions
+- **Stakeconomy's SolanaMonitoring**
+  - Repository: [github.com/stakeconomy/solanamonitoring](https://github.com/stakeconomy/solanamonitoring)
+  - Community-maintained monitoring solution
+  - Features:
+    - Performance tracking
+    - Health checks
+
+### 3. Custom Monitoring Stack
+- **Grafana + InfluxDB Setup**
+  - Fully customizable metrics visualization
+  - Time-series data storage
+  - Benefits:
+    - Custom dashboards
+    - Historical data analysis
+
+## Active Monitoring Tools
+
+### 1. Solana Watcher
+- Official monitoring tool by Solana Labs
+- Documentation: [docs.solanalabs.com/operations/best-practices/monitoring](https://docs.solanalabs.com/operations/best-practices/monitoring)
+- Features:
+  - Automated health checks
+  - System alerts
+
+### 2. Stakewiz Update bot Integration
+- Telegram notification system
+- Real-time alerts and updates
+
+## Security Best Practices
+
+### 1. Firewall Configuration
+- Only open required ports
+- Implement port-specific rules
+- Regular audit of open ports
+- Use UFW (Uncomplicated Firewall) for simple management
+
+### 2. User Management
+- ✅ Run validator with non-root user
+- ❌ Avoid running as root
+- ❌ Validator user should not have sudo privileges
+- Create dedicated service account for validator operations
+
+### 3. SSH Security
+- Disable password authentication
+- Use SSH keys exclusively
+- Consider:
+  - Custom SSH port
+  - Key-based authentication only
+  - Rate limiting for failed attempts
+
+### 4. Keypair Security
+- Secure storage of validator keypairs
+- Best practices:
+  - Encrypted backups
+  - Access control logs
+
+
 
 
 
