@@ -306,7 +306,7 @@ tail -f solana-validator.log
 - ✅ Run validator with non-root user
 - ❌ Avoid running as root
 - ❌ Validator user should not have sudo privileges
-- Create dedicated service account for validator operations
+- Create a dedicated service account for validator operations
 
 ### 3. SSH Security
 - Disable password authentication
@@ -323,6 +323,12 @@ tail -f solana-validator.log
   - Access control logs
 
 
+# Credits 
+- Solana Labs / [docs](https://docs.solanalabs.com/operations/setup-a-validator)
+- Overclock / [setup guide](https://github.com/overclock-Validator/autoclock-validator/)
+- Ferric / [StakeWare](https://www.stakeware.xyz)
+- Pumpkin's Pool / [Pumpkin's pool](https://pumpkins-pool.gitbook.io/pumpkins-pool)
+- 
 
 
 
