@@ -1,11 +1,11 @@
 # [WIP] Speed up validator setup 
 
-A guide for validator setup. I have been playing with different hardware so actively switching machines so this acts a helpful resource to myself
+A guide for validator setup. I have been playing with different hardware so actively switching machines so this acts as a helpful resource to me. This covers how to setup a validator and the required hardware and system tuning that I prefer to do. 
 
 ## Basic Overview
 System recommendation refer to [Solanahcl](https://solanahcl.org) list by [ferric](https://x.com/ferric) / [StakeWare](https://www.stakeware.xyz)
 
-Three or more disks required with the following configuration:
+Three or more disks are required with the following configuration:
 1. SSD primary OS (~500 GB)
 2. NVMe Ledger (≥2TB)
 3. NVMe Accounts and snapshot (≥2TB)
