@@ -3,6 +3,7 @@
 A guide for validator setup. I have been playing with different hardware so actively switching machines so this acts a helpful resource to myself
 
 ## Basic Overview
+System recommendation refer to [Solanahcl](https://solanahcl.org) list by [ferric](https://x.com/ferric) / [StakeWare](https://www.stakeware.xyz)
 
 Three disks required with the following configuration:
 1. SSD primary OS (~500 GB)
