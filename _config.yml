@@ -1,14 +1,14 @@
 plugins:
   - jekyll-github-metadata
   - jekyll-remote-theme
-remote_theme: pages-themes/time-machine@v0.2.0
+remote_theme: pages-themes/cayman@v0.2.0
 
 # Add these lines
 title: Speed up validator setup
 description: A simple guide to setup validator 
 show_downloads: false
 google_analytics:
-theme: jekyll-theme-hacker
+theme:  pages-themes/cayman@v0.2.0
 
 # Optimize for mobile
 mobile_optimization: true
