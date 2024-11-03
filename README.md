@@ -1,4 +1,4 @@
-# [WIP] Speed up validator setup 
+# Speed up validator setup 
 
 A guide for validator setup. I have been playing with different hardware so actively switching machines so this acts as a helpful resource to me. This covers how to setup a validator and the required hardware and system tuning that I prefer to do. 
 
@@ -159,6 +159,10 @@ alias catchup='solana catchup --our-localhost'
 alias monitor='solana-validator --ledger /mnt/ledger monitor'
 alias logtail='tail -f /home/sol/solana-validator.log'
 ```
+3. Start script
+Use the start script [here](https://github.com/dhruvsol/ice-staking/blob/main/start/start.sh), specifically configured for a voting validator node. Note that the configuration includes modifications to support RPC functionality.
+addition flag for RPC node [here](https://docs.anza.xyz/operations/setup-an-rpc-node)
+
 
 ### Additional Resources
 - Installation script source: [ice-staking repository](https://github.com/dhruvsol/ice-staking/blob/main/start/init.sh)
@@ -325,10 +329,10 @@ tail -f solana-validator.log
 
 # Credits 
 - Solana Labs / [docs](https://docs.solanalabs.com/operations/setup-a-validator)
+- Tim Garcia / [youtube](https://www.youtube.com/playlist?list=PLilwLeBwGuK6jKrmn7KOkxRxS9tvbRa5p)
 - Overclock / [setup guide](https://github.com/overclock-Validator/autoclock-validator/)
 - Ferric / [StakeWare](https://www.stakeware.xyz)
 - Pumpkin's Pool / [Pumpkin's pool](https://pumpkins-pool.gitbook.io/pumpkins-pool)
-- 
 
 
 
