@@ -1,4 +1,4 @@
-# Speed up validator setup 
+# Validator Jumpstart
 
 A guide for setting up validators, blazingly fast. I have been playing around with different systems, actively switching validator machines, so this acts as a guide for me personally. This is an opinionated guide that covers how to setup a validator, the hardware requirements and settings I like to tune.
 
