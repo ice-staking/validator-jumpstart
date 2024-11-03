@@ -161,7 +161,7 @@ alias logtail='tail -f /home/sol/solana-validator.log'
 ```
 3. Start script
 Use the start script [here](https://github.com/dhruvsol/ice-staking/blob/main/start/start.sh), specifically configured for a voting validator node. Note that the configuration includes modifications to support RPC functionality.
-addition flag for RPC node [here](https://docs.anza.xyz/operations/setup-an-rpc-node)
+additional flag for RPC node [here](https://docs.anza.xyz/operations/setup-an-rpc-node)
 
 
 ### Additional Resources
