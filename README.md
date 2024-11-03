@@ -165,7 +165,7 @@ addition flag for RPC node [here](https://docs.anza.xyz/operations/setup-an-rpc-
 
 
 ### Additional Resources
-- Installation script source: [ice-staking repository](https://github.com/dhruvsol/ice-staking/blob/main/start/init.sh)
+- Installation script source: [ice-staking repository](https://github.com/dhruvsol/ice-staking)
 
 
 # Hot-Swap Validator Setup Guide
