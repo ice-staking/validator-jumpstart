@@ -1,6 +1,6 @@
 # Speed up validator setup 
 
-A guide for validator setup. I have been playing with different hardware so actively switching machines so this acts as a helpful resource to me. This covers how to setup a validator and the required hardware and system tuning that I prefer to do. 
+A guide for setting up validators, blazingly fast. I have been playing around with different systems, actively switching validator machines, so this acts as a guide for me personally. This is an opinionated guide that covers how to setup a validator, the hardware requirements and settings I like to tune.
 
 ## Basic Overview
 System recommendation refer to [Solanahcl](https://solanahcl.org) list by [ferric](https://x.com/ferric) / [StakeWare](https://www.stakeware.xyz)
