@@ -1,4 +1,5 @@
-# Validator Jumpstart
+<img width="1280" alt="validator Jumpstart" src="https://github.com/user-attachments/assets/9412f361-d281-4af5-a061-0acc87905945">
+
 
 A guide for setting up validators, blazingly fast. I have been playing around with different systems, actively switching validator machines, so this acts as a guide for me personally. This is an opinionated guide that covers how to setup a validator, the hardware requirements and settings I like to tune.
 
