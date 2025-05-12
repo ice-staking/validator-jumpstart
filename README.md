@@ -1,7 +1,20 @@
 <img width="1280" alt="validator Jumpstart" src="https://github.com/user-attachments/assets/9412f361-d281-4af5-a061-0acc87905945">
 
+# 🛑 Deprecated: Validator Setup Guide
 
-A guide for setting up validators, blazingly fast. I have been playing around with different systems, actively switching validator machines, so this acts as a guide for me personally. This is an opinionated guide that covers how to setup a validator, the hardware requirements and settings I like to tune.
+> ⚠️ **This repository is deprecated and no longer maintained.**  
+> 👉 The updated and active version of this guide now lives at:  
+> [https://github.com/brewlabshq/validator-jumpstart](https://github.com/brewlabshq/validator-jumpstart)
+
+---
+
+## About This Guide (Archived)
+
+This was a personal, opinionated guide for setting up Solana validators—designed to be blazingly fast and practical. It documents my experience with switching validator machines, optimizing hardware, and tuning system settings.
+
+While still potentially useful for reference, it is no longer updated.  
+Please visit the new repo for the latest practices, configurations, and scripts.
+
 
 ## Basic Overview
 System recommendation refer to [Solanahcl](https://solanahcl.org) list by [ferric](https://x.com/ferric) / [StakeWare](https://www.stakeware.xyz)
